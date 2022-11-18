@@ -62,8 +62,8 @@ const Form = () => {
            })}
 
            <button onClick={()=> addstudentinlist()} > click </button>
+          
            {console.log({addstudent})}
-           
 
         </div>
     )
