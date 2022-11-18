@@ -1,4 +1,5 @@
 import Form from "../components/form"
+import Forms2 from "../components/forms2"
 
 const Forms = () => {
     
@@ -7,7 +8,7 @@ const Forms = () => {
     return (
         <div>
 
-     <Form/>
+<Forms2/>
 
         </div>
     )

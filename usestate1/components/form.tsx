@@ -34,6 +34,8 @@ const Form = () => {
 
     const addstudentinlist = () => {
         setaddstudent([...addstudent,student2])
+       
+       
     } 
     
     return (
@@ -41,6 +43,7 @@ const Form = () => {
 
             <input type="text" placeholder="username" onChange={(e)=>getUservalues(e)}/> <br/>
             <input type="text" placeholder="email" onChange={(e)=>getEmailvalues(e)}/>
+          
             <br/>
            {uservalue} 
            <br/>
