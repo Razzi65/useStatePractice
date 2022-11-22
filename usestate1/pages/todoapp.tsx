@@ -1,10 +1,10 @@
-import Todo from "../components/todo"
+import Todo1 from "../components/todo1"
 
 const Todoapp = () => {
     return (
         <div>
 
-            <Todo/>
+            <Todo1/>
 
         </div>
     )
