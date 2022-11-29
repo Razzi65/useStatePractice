@@ -6,12 +6,12 @@ const Todo4 = () => {
 
 
     const [userTodo, setUserToDo] = useState()
-    const onchangeHandler = (e) => {
+    const onchangeHandler = (e:any) => {
         setUserToDo(e.target.value)
     }
 
     type toDoType4 = {
-        item: string
+        item: string | any
     }
 
     const [userValue, setUserValue] = useState<toDoType4[]>([])
@@ -35,7 +35,7 @@ const Todo4 = () => {
     const [newIndex,setNewIndex] = useState()
     
 
-    const updateHandler = (OriginalToDo, index) => {
+    const updateHandler = (OriginalToDo:any, index:any) => {
         setIsUpdate(true)
         setNewObjj (OriginalToDo.items)
         setNewIndex(index)

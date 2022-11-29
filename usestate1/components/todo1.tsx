@@ -9,7 +9,7 @@ const Todo1 = () => {
     }
     const [eventitem, settodoitem1] = useState<string>("")
 
-    const onchageHandler = (e) => {
+    const onchageHandler = (e:any) => {
         settodoitem1(e.target.value)
     }
 
@@ -23,7 +23,7 @@ const Todo1 = () => {
         settodoitemold([...todoitemOld, TodoNewData])
     }
 
-    const onDeleteHandler = (olditems) => {
+    const onDeleteHandler = (olditems:any) => {
             const filtered = todoitemOld.filter((filterdTodo)=>{
                 if(olditems.name != filterdTodo.name){
                     return filterdTodo
