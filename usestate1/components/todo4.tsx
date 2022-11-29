@@ -32,33 +32,31 @@ const Todo4 = () => {
 
     const [isUpdate,setIsUpdate] = useState(false)
     const [newobjj,setNewObjj] = useState<toDoType4[]>([])
+    const [newIndex,setNewIndex] = useState()
     
 
-    const updateHandler = (OriginalToDo) => {
+    const updateHandler = (OriginalToDo, index) => {
         setIsUpdate(true)
         setNewObjj (OriginalToDo.items)
+        setNewIndex(index)
     }
 
-    const onEditHandler = (userValue) => {
-        let newObj:toDoType4 = {item:newobjj}
 
-        const editedArr = userValue.map((userValue1,index2)=>{
+        const editHandler = () => {
+            const newList = userValue.map((newItem,index1)=>{
+                if(index1 == newIndex ){
+                    let updatedItem = { item:userTodo}
+                    return updatedItem
+                }
+                else { return newItem}
+            })
+            setIsUpdate(false)
+            setUserToDo("")
+            setUserValue(newList)
+
+
             
-            if (userValue.item==userValue1.item) {
-                return newObj
-            }
-            else { 
-                return userValue1
-            }
         }
-        )
-        setIsUpdate(false)
-        setUserValue(editedArr)
-    }
-
-
-
-
 
 
     return (
@@ -69,10 +67,10 @@ const Todo4 = () => {
 
                 <div className="input-group mb-3">
 
-                    <input onChange={(e) => onchangeHandler(e)} type="text" className="form-control" placeholder="Write Task" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                    <input onChange={(e) => onchangeHandler(e)} type="text"  className="form-control" placeholder="Write Task" aria-label="Recipient's username" aria-describedby="button-addon2" />
                     
                     {isUpdate==true?
-                    <button onClick={() => onEditHandler(userValue)} type="button" className="btn btn-primary">Update</button> :
+                    <button onClick={() => editHandler()} type="button" className="btn btn-primary">Update</button> :
                     <button onClick={() => onClickHandler()} type="button" className="btn btn-primary">+</button>
 }
                
@@ -88,7 +86,7 @@ const Todo4 = () => {
                                     <div> {OriginalToDo.item} 
 
                                     <button type="button" className="btn btn-secondary btn-sm float-end ms-1" onClick={()=>onDeleteHandler(index)}>Del</button>
-                                    <button type="button" className="btn btn-secondary btn-sm float-end" onClick={()=>updateHandler(OriginalToDo)}>Edit</button>
+                                    <button type="button" className="btn btn-secondary btn-sm float-end" onClick={()=>updateHandler(OriginalToDo.item,index)}>Edit</button>
                                     </div>
 
                                 </li>

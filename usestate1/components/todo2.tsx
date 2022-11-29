@@ -31,6 +31,7 @@ const Todo2 = () => {
     }
     const [isUpdate, setIsUpdate] = useState(false)
     const [docRef, setDocRef] = useState()
+    
     const onupdateHandler = (index, value) => {
         setIsUpdate(true)
         setFirstTodo(value)
