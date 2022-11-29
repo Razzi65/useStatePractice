@@ -51,7 +51,7 @@ const Todo4 = () => {
                 else { return newItem}
             })
             setIsUpdate(false)
-            setUserToDo("")
+            
             setUserValue(newList)
 
 
