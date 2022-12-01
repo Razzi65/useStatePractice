@@ -77,7 +77,7 @@ const Todo5 = () => {
                
                 <br />
 
-                {(targetValue || targetValue.length) ? "" : "No task to Display"}
+                {(toDoList && toDoList.length) ? "" : "No task to Display"}
 
                 <div>
                     {
