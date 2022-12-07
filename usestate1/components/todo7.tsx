@@ -58,6 +58,21 @@ const Todo7 = () => {
         setIsUpdate(false)
     }
 
+    // const [DoneArray, setDoneArray] = useState([])
+
+
+    // const onDoneHandler = (item) => {
+
+    //     const DoneFilter = userValue.map((val)=>{
+    //         if (item == val) {
+    //             return val
+    //         }
+    //         console.log(val);
+    //     }) 
+        
+    //     setDoneArray([DoneFilter])
+    //  }
+
 
 
     return (
@@ -70,7 +85,8 @@ const Todo7 = () => {
 
                     <input value={onChange} onChange={(e) => onChangeHandler(e)} type="text" className="form-control" placeholder="Write Task" aria-label="Recipient's username" aria-describedby="button-addon2" />
                     {isUpdate==true? <button onClick={() => onUpdateHandler()} type="button" className="btn btn-primary">Update</button>
-                    :<button onClick={() => onClickHandler()} type="button" className="btn btn-primary">+</button>}
+                    :<button onClick={() => onClickHandler()} type="button" className="btn btn-primary">+</button>
+                    }
                 </div>
 
 
@@ -83,11 +99,19 @@ const Todo7 = () => {
                                         {items.toDoItem}
                                         <button onClick={() => onDeleteHandler(originalIndex)} type="button" className="btn btn-secondary btn-sm float-end ms-1" >Del</button>
                                         <button onClick={() => onEditHandler(items.toDoItem, originalIndex)} type="button" className="btn btn-secondary btn-sm float-end ms-1" >Edit</button>
+                                        <button  type="button" className="btn btn-secondary btn-sm float-end ms-1">Done</button>
 
                                     </li> </ul>
                             </div>
+                            
                         )
                     })}
+                    <hr/>
+                   {/* <div>
+                   {DoneArray.map((Doneitems)=>{
+                    return <li> {Doneitems.}</li>
+                   })}
+                   </div> */}
                 </div>
             </div>
         </Flex>
