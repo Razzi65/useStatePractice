@@ -5,30 +5,38 @@ import { db } from '../../usestate1/components/firebase/config'
 
 const Todo8 = () => {
 
+       
+    type toDoType8 = {
+            item:string,
+            id:string 
+        }
 
-    const [eventData, setEventData] = useState()
+    const [eventData, setEventData] = useState<string>("")
 
     const onChangeHandler = (e: any) => {
         setEventData(e.target.value)
     }
 
-    const [toDoList, setToDoList] = useState([""])
-    const newItemAdded = { item: eventData }
+    const [toDoList, setToDoList] = useState<toDoType8[]>([])
+    
+    
+    const newItemAdded = { 
+        item: eventData
+    }
 
     const onClickHandler = async () => {
 
-        // Add a new document with a generated id.
       try{ 
-        const docRef = await addDoc(collection(db, "todos"), newItemAdded );
+        const docRef = await addDoc(collection(db, "toDo"), newItemAdded );
         console.log("Document written with ID: ", docRef.id);
 
-        setToDoList([...toDoList, newItemAdded])
+        setToDoList([...toDoList, {...newItemAdded, id: docRef.id}])
         setEventData("")
     } 
     catch(e) {
         console.error(e)
-    }
-    
+    }}
+
 
 
     return (
@@ -39,10 +47,10 @@ const Todo8 = () => {
             <br />
 
             {
-                toDoList.map((val) => {
+                toDoList.map((val:toDoType8) => {
                     return (
                         <div className="ms-5">
-                            <li> {val}</li>
+                            <ul><li> {val.item}</li></ul>
                         </div>
                     )
                 })
@@ -51,7 +59,7 @@ const Todo8 = () => {
         </div>
     )
 
-}}
+}
 
 
 export default Todo8
