@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { db } from "./firebase/config"
+//import { db } from "./firebase/config"
 import { collection, addDoc } from "firebase/firestore"; 
 
 
@@ -23,10 +23,10 @@ const Todo9 = () => {
     const onClickHandler = async() => {
 
      try{
-const docRef = await addDoc(collection(db, "toDo"), addItem);
-  console.log("Document written with ID: ", docRef.id);
+//const docRef = await addDoc(collection(db, "toDo"), addItem);
+ // console.log("Document written with ID: ", docRef.id);
 
-        setToDoList([...toDoList, {...addItem, id:docRef.id}])
+  //      setToDoList([...toDoList, {...addItem, id:docRef.id}])
     }
 
     catch(e){
